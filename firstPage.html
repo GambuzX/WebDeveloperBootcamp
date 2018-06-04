@@ -77,7 +77,8 @@
 	<input type="date" name="DATA">
 	<input type="color" name="COLOR">
 	<input type="file" name="FILE">
-	<input type="checkbox" name="CHECKBOX">
+	<input type="checkbox" name="CHECKBOX">	
+	<input type="radio" name="CHECKBOX">
 
 	<h4> Sign in </h4>
 	<form action= "https://www.google.com" method="get">
@@ -86,6 +87,34 @@
  		<input id= "password type="password" placeholder="password" required> 
 
 		<button>Login</button>
+	</form>
+
+	<h4>Do you prefer potatoes or tomatoes?</h4>
+	<form>
+		<label for="Potatoes">Potatoes </label>
+		<input name="importantChoice" id= "Potatoes" type="radio" value="Potato">
+
+		<label for="Tomatoes">Tomatoes </label>
+		<input name="importantChoice" id="Tomatoes" type="radio" value="Tomato">
+
+		<button> Submit </button>
+	</form>
+
+	<h4>Which one is the best starter pokemon?</h4>
+	<form>
+		<select name="starterPokemon">
+			<option> Bulbasaur </option>
+			<option> Charmander </option>
+			<option> Squirtle </option>
+		</select>
+
+		<button> Submit </button>
+	</form>
+
+	<h4>Space for creativity</h4>
+	<form>
+		<textarea name="creativeText" rows="3" cols="24">Write something here!</textarea>
+		<button> Submit </button>
 	</form>
 
 </body>
