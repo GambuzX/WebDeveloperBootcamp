@@ -1,7 +1,11 @@
 h1 {
-	color: purple;
+	color: rgb(0,255,0);
+}
+
+h4{
+	color: rgba(0,0,0,0.5);
 }
 
 li{
-	color: orange;
+	color: #FF00FF;
 }
