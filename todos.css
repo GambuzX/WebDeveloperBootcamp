@@ -1,0 +1,21 @@
+body{
+	background: orange;
+}
+
+#purpleItem{
+	color: purple;
+}
+
+#pinkItem{
+	color: pink;
+}
+
+#whiteBackground{
+	background-color: white;
+	color: black;
+}
+
+.blackAndYellow{
+	background-color: black;
+	color: yellow;
+}
