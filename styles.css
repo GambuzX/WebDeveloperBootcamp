@@ -1,0 +1,21 @@
+p {
+	font-family: "Arial";
+}
+
+h1 {
+	font-family: "Gigi";
+}
+
+/* font size */
+
+h1 {
+	font-size: 120px;
+	text-align: center;
+}
+
+p {
+	font-weight: bold;
+	line-height: 2;
+	text-align: center;
+	text-decoration: line-through underline;
+}
