@@ -1,0 +1,28 @@
+img {
+
+	width: 30%;
+	float:left;
+	margin: 1.66%;
+}
+
+/*h1 {
+	font-family: arial;
+	font-size: 80px;
+	border: 1px solid black;
+	padding: 30px auto;
+	margin: auto;
+	width: 40%;
+	text-align: center;
+	position:relative;
+}*/
+
+h1 {
+	margin-left: 1.66%;
+	margin-bottom: 0;
+	font-family: Montserrat;
+	font-size: 23px;
+	font-weight: 800;
+	text-transform: uppercase;
+	border-bottom: black 3px solid;
+	width: 30%;
+}
