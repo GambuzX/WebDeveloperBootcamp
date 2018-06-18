@@ -5,7 +5,10 @@ var age = prompt("Age?");
 console.log("Your full name is " + firstName + " " + lastName);
 console.log("Your age is " + age);*/
 
-var age = prompt("Age?");
-var daysAlive = Number(age) * 365;
+var answer;
 
-alert("You have been alive for " + String(daysAlive) + " days.");
+while (answer !== "yes" && answer !== "yeah") {
+	answer = prompt("Are we there yet?");
+}
+
+alert("Yay, we finally made it!!!");
