@@ -5,9 +5,9 @@ var age = prompt("Age?");
 console.log("Your full name is " + firstName + " " + lastName);
 console.log("Your age is " + age);*/
 
-var answer;
+var answer = prompt("Are we there yet?");
 
-while (answer !== "yes" && answer !== "yeah") {
+while (answer.indexOf("yes") === -1 && answer !== "yeah") {
 	answer = prompt("Are we there yet?");
 }
 
