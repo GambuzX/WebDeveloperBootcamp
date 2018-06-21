@@ -1,6 +1,7 @@
 var docBody = document.querySelector("body");
 var message = document.querySelector("#message");
 var h1 = document.querySelector("h1");
+var resetButton = document.querySelector("#resetButton");
 var squares = document.querySelectorAll(".square");
 var rgbTarget = document.querySelector("h1 span");
 var colors = generateRandomColors(6);
@@ -20,6 +21,7 @@ for (var i = 0; i < squares.length; i++) {
 			message.textContent = "Correct!";
 			changeColors(clickedColor);
 			h1.style.backgroundColor = clickedColor;
+			resetButton.textContent = "Play Again?";
 		}
 		else{
 			//Wrong
@@ -28,6 +30,26 @@ for (var i = 0; i < squares.length; i++) {
 		}
 	});
 }
+
+resetButton.addEventListener("click", function() {
+	//generate all new colors
+	colors = generateRandomColors(6);
+	//pick a new random color
+	pickedColor = pickColor();
+	//change color display to match picked color
+	rgbTarget.textContent = pickedColor;
+	//change colors of squares
+	for (var i = 0; i < squares.length; i++) {
+		squares[i].style.backgroundColor = colors[i];
+	}
+	//reset h1 background color
+	h1.style.backgroundColor = "#232323";
+	//remove previous message
+	message.textContent = "";
+	//reset reset button message
+	resetButton.textContent = "New Colors";
+
+})
 
 function changeColors(color) {
 	//Loop through all squares

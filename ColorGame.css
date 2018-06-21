@@ -6,10 +6,6 @@ h1 {
 	color: white;
 }
 
-span {
-	color: white;
-}
-
 .square {
 	width: 30%;
 	background-color: purple;
@@ -21,4 +17,10 @@ span {
 #container {
 	max-width: 600px;
 	margin: 0 auto;
+}
+
+#stripe {
+	background-color: white;
+	height: 30px;
+	text-align: center;
 }
