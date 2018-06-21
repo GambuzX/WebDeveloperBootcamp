@@ -2,6 +2,8 @@ var docBody = document.querySelector("body");
 var message = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#resetButton");
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
 var squares = document.querySelectorAll(".square");
 var rgbTarget = document.querySelector("h1 span");
 var colors = generateRandomColors(6);
@@ -32,23 +34,19 @@ for (var i = 0; i < squares.length; i++) {
 }
 
 resetButton.addEventListener("click", function() {
-	//generate all new colors
-	colors = generateRandomColors(6);
-	//pick a new random color
-	pickedColor = pickColor();
-	//change color display to match picked color
-	rgbTarget.textContent = pickedColor;
-	//change colors of squares
-	for (var i = 0; i < squares.length; i++) {
-		squares[i].style.backgroundColor = colors[i];
-	}
-	//reset h1 background color
-	h1.style.backgroundColor = "#232323";
-	//remove previous message
-	message.textContent = "";
-	//reset reset button message
-	resetButton.textContent = "New Colors";
+	resetGame(colors.length);
+})
 
+easyBtn.addEventListener("click", function() {
+	easyBtn.classList.add("selected");
+	hardBtn.classList.remove("selected");
+	resetGame(3);
+})
+
+hardBtn.addEventListener("click", function() {
+	hardBtn.classList.add("selected");
+	easyBtn.classList.remove("selected");
+	resetGame(6);
 })
 
 function changeColors(color) {
@@ -78,4 +76,31 @@ function randomColor() {
 	var G = String(Math.floor(Math.random() * 256));
 	var B = String(Math.floor(Math.random() * 256));
 	return "rgb(" + R + ", " + G + ", " + B + ")";
+}
+
+function resetGame(nSquares) {
+	//generate all new colors
+	colors = generateRandomColors(nSquares);
+	//pick a new random color
+	pickedColor = pickColor();
+	//change color display to match picked color
+	rgbTarget.textContent = pickedColor;
+	//change colors of squares and select which ones to be displayed
+	for (var i = 0; i < squares.length; i++) {
+		if (colors[i]) {
+			squares[i].style.backgroundColor = colors[i];
+			squares[i].style.display = "block";
+		} else {
+			squares[i].style.display = "none";
+		}
+	}
+	//reset h1 background color
+	h1.style.backgroundColor = "#232323";
+	//remove previous message
+	message.textContent = "";
+	//reset reset button message
+	resetButton.textContent = "New Colors";
+
+	//Select squares to display
+
 }
