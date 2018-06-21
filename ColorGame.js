@@ -6,48 +6,67 @@ var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
 var squares = document.querySelectorAll(".square");
 var rgbTarget = document.querySelector("h1 span");
-var colors = generateRandomColors(6);
-var pickedColor = pickColor();
 
-rgbTarget.textContent = pickedColor;
+var colors = [];
+var pickedColor;
 
-for (var i = 0; i < squares.length; i++) {
-	//Add initial colors to squares
-	squares[i].style.backgroundColor = colors[i];
-	//Add event listeners
-	squares[i].addEventListener("click", function(){
-		//grab color of clicked square and compare to target color
-		var clickedColor = this.style.backgroundColor;
-		if (clickedColor === pickedColor){
-			//Correct
-			message.textContent = "Correct!";
-			changeColors(clickedColor);
-			h1.style.backgroundColor = clickedColor;
-			resetButton.textContent = "Play Again?";
-		}
-		else{
-			//Wrong
-			this.style.backgroundColor = "#232323";
-			message.textContent = "Try Again!";
-		}
-	});
+//------------------------------------------------------------------------------
+
+init();
+
+//------------------------------------------------------------------------------
+
+function init() {
+
+	colors = generateRandomColors(6);
+	pickedColor = pickColor();
+	rgbTarget.textContent = pickedColor;
+
+	setUpSquares();
+	setUpModeButtons();
 }
 
-resetButton.addEventListener("click", function() {
-	resetGame(colors.length);
-})
+function setUpSquares() {
+	for (var i = 0; i < squares.length; i++) {
+		//Add initial colors to squares
+		squares[i].style.backgroundColor = colors[i];
+		//Add event listeners
+		squares[i].addEventListener("click", function(){
+			//grab color of clicked square and compare to target color
+			var clickedColor = this.style.backgroundColor;
+			if (clickedColor === pickedColor){
+				//Correct
+				message.textContent = "Correct!";
+				changeColors(clickedColor);
+				h1.style.backgroundColor = clickedColor;
+				resetButton.textContent = "Play Again?";
+			}
+			else{
+				//Wrong
+				this.style.backgroundColor = "#232323";
+				message.textContent = "Try Again!";
+			}
+		});
+	}
+}
 
-easyBtn.addEventListener("click", function() {
-	easyBtn.classList.add("selected");
-	hardBtn.classList.remove("selected");
-	resetGame(3);
-})
+function setUpModeButtons() {
+	resetButton.addEventListener("click", function() {
+		resetGame(colors.length);
+	})
 
-hardBtn.addEventListener("click", function() {
-	hardBtn.classList.add("selected");
-	easyBtn.classList.remove("selected");
-	resetGame(6);
-})
+	easyBtn.addEventListener("click", function() {
+		easyBtn.classList.add("selected");
+		hardBtn.classList.remove("selected");
+		resetGame(3);
+	})
+
+	hardBtn.addEventListener("click", function() {
+		hardBtn.classList.add("selected");
+		easyBtn.classList.remove("selected");
+		resetGame(6);
+	})
+}
 
 function changeColors(color) {
 	//Loop through all squares
@@ -100,7 +119,4 @@ function resetGame(nSquares) {
 	message.textContent = "";
 	//reset reset button message
 	resetButton.textContent = "New Colors";
-
-	//Select squares to display
-
 }
