@@ -95,7 +95,7 @@ function resetGame(nSquares) {
 		}
 	}
 	//reset h1 background color
-	h1.style.backgroundColor = "#232323";
+	h1.style.backgroundColor = "steelblue";
 	//remove previous message
 	message.textContent = "";
 	//reset reset button message
