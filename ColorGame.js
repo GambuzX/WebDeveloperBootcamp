@@ -1,8 +1,11 @@
 var docBody = document.querySelector("body");
+var message = document.querySelector("#message");
 var squares = document.querySelectorAll(".square");
 var rgbTarget = document.querySelector("h1 span");
 var colors = ["rgb(255, 0, 0)", "rgb(0, 255, 0)", "rgb(0, 0, 255)", "rgb(0, 255, 255)", "rgb(255, 0, 255)", "rgb(255, 255, 0)"];
-var pickedColor = colors[3];
+var pickedColor = pickColor();
+
+rgbTarget.textContent = pickedColor;
 
 for (var i = 0; i < squares.length; i++) {
 	//Add initial colors to squares
@@ -14,13 +17,26 @@ for (var i = 0; i < squares.length; i++) {
 		var clickedColor = this.style.backgroundColor;
 		if (clickedColor === pickedColor){
 			//Correct
-
+			message.textContent = "Correct!";
+			changeColors(clickedColor);
 		}
 		else{
 			//Wrong
 			this.style.backgroundColor = "#232323";
+			message.textContent = "Try Again!";
 		}
 	});
 }
 
-rgbTarget.textContent = pickedColor;
+function changeColors(color) {
+	//Loop through all squares
+	//Change color to the given one
+	for (var i = 0; i < squares.length; i++){
+		squares[i].style.backgroundColor = color;
+	}
+}
+
+function pickColor() {
+	var randomIndex = Math.floor(Math.random() * colors.length);
+	return colors[randomIndex];
+}
