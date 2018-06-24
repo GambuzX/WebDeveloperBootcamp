@@ -16,7 +16,7 @@ $("input[type='text']").on("keypress", function(event){
 
 		if (textContent !== "") {
 			//Make new li and add to ul
-			$("ul").append("<li><span>X</span> " + textContent + "</li>");
+			$("ul").append("<li><span><i class='fas fa-trash-alt'></i></span> " + textContent + "</li>");
 			//Remove previous text
 			$(this).val("");
 		}
