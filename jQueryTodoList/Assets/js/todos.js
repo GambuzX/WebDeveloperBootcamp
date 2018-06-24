@@ -13,9 +13,12 @@ $("input[type='text']").on("keypress", function(event){
 	if (event.which === 13) {
 		//Extract text
 		var textContent = $(this).val();
-		//Make new li and add to ul
-		$("ul").append("<li><span>X</span> " + textContent + "</li>");
-		//Remove previous text
-		$(this).val("");
+
+		if (textContent !== "") {
+			//Make new li and add to ul
+			$("ul").append("<li><span>X</span> " + textContent + "</li>");
+			//Remove previous text
+			$(this).val("");
+		}
 	}
 })
