@@ -6,11 +6,12 @@
 	<script type="text/javascript" src="paper-full.js"></script>
 	<script type="text/paperscript" canvas="myCanvas">
 	
-	for (var i = 0; i <= 1000; i += 100) {
-		for (var j = 0; j <= 1000; j += 100) {
-			var myCircle = new Path.Circle(new Point(i, j), 10);
-			myCircle.fillColor = 'purple';
-		}
+	function onKeyDown(event) {
+		var maxPoint = new Point(view.size.width, view.size.height);
+		var randomPoint = Point.random();
+		var point = maxPoint * randomPoint;
+
+		new Path.Circle(point,50).fillColor = "red";
 	}
 
 	</script>
