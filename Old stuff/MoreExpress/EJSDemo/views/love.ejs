@@ -1,0 +1,15 @@
+<% include partials/header %>
+
+<h1> You fell in love with: <%= thingVar %> </h1>
+
+<% if (thingVar === "Potato") { %>
+    <p>GOOD CHOICE!</p>
+<% } %>
+
+<% for (var i = 0 ; i < 10; i++) {%>
+    <p>This is a paragraph!</p>
+<% } %>
+
+<p>P.S. This is the love.ejs file</p>
+
+<% include partials/footer %>
