@@ -22,3 +22,6 @@ It has many different pages and applications which reflect different learning st
 * Authentication
 * PassportJS
 * Authorization
+
+### Disclaimer
+This repository was used for educational purposes and I do not take any responsibility for anything related to its content. You are free to use any page, stylesheet or code you find, but do so at your own risk.
